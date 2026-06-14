@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Analytics - ZOLA.ia</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .analytics-hero {
+            padding: 150px 0 80px;
+            background: linear-gradient(135deg, var(--primary-dark), #0a1628);
+        }
+        
+        .analytics-hero .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        
+        .solution-badge {
+            display: inline-block;
+            background: rgba(57, 255, 20, 0.1);
+            padding: 5px 15px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            margin-bottom: 20px;
+            border: 1px solid rgba(57, 255, 20, 0.3);
+        }
+        
+        .analytics-demo {
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            border-radius: 20px;
+            padding: 20px;
+            border: 1px solid rgba(57, 255, 20, 0.3);
+        }
+        
+        .analytics-preview {
+            background: #0a0a1a;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .correlation-plot {
+            position: relative;
+            height: 150px;
+            margin-bottom: 20px;
+        }
+        
+        .dot {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: var(--neon-green);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+        }
+        
+        .trend-line {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--electric-blue), var(--neon-green));
+            transform: translateY(-50%);
+        }
+        
+        .analytics-stats {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+            font-family: monospace;
+            font-size: 0.8rem;
+            color: var(--neon-green);
+        }
+        
+        .features-section { padding: 80px 0; }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .feature-card {
+            text-align: center;
+            padding: 30px;
+            background: var(--primary-blue);
+            border-radius: 15px;
+            transition: transform 0.3s ease;
+        }
+        
+        .feature-card:hover { transform: translateY(-5px); }
+        .feature-card i { font-size: 2.5rem; color: var(--neon-green); margin-bottom: 15px; }
+        
+        .tech-details { padding: 80px 0; background: var(--primary-blue); }
+        .tech-stack-detail { max-width: 600px; margin: 0 auto; }
+        .tech-item { margin-bottom: 25px; }
+        .tech-name { display: block; margin-bottom: 8px; font-weight: 500; }
+        .tech-bar { background: rgba(255,255,255,0.1); height: 8px; border-radius: 4px; overflow: hidden; }
+        .tech-progress { background: linear-gradient(90deg, var(--neon-green), var(--electric-blue)); height: 100%; border-radius: 4px; }
+        
+        .use-cases { padding: 80px 0; }
+        .cases-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 50px;
+        }
+        .case-card {
+            text-align: center;
+            padding: 30px;
+            background: var(--primary-blue);
+            border-radius: 15px;
+        }
+        .case-card i { font-size: 2.5rem; color: var(--neon-green); margin-bottom: 15px; }
+        
+        @media (max-width: 992px) {
+            .analytics-hero .container { grid-template-columns: 1fr; text-align: center; }
+            .features-grid { grid-template-columns: repeat(2, 1fr); }
+            .cases-grid { grid-template-columns: 1fr; }
+        }
+        
+        @media (max-width: 576px) {
+            .features-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                ZOLA<span>.ia</span>
+            </a>
+            
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="about.html">Sobre</a></li>
+                    <li class="dropdown">
+                        <a href="#">Soluções <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="bi_consulting.html"><i class="fas fa-chart-line"></i> Business Intelligence</a></li>
+                            <li><a href="data_analytics.html"><i class="fas fa-chart-pie"></i> Data Analytics</a></li>
+                            <li><a href="security.html"><i class="fas fa-shield-alt"></i> Vigilância com IA</a></li>
+                            <li><a href="strategic_consulting.html"><i class="fas fa-users"></i> Consultoria Estratégica</a></li>
+                        </ul>
+                    </li>
+   
+                    <li><a href="contact.html" class="btn btn-secondary">Contactos</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="analytics-hero">
+            <div class="container">
+                <div class="solution-hero-content">
+                    <div class="solution-badge">Data Analytics</div>
+                    <h1>Análise Avançada de <span class="gradient-text">Dados</span></h1>
+                    <p>Extraia valor máximo dos seus dados com análises avançadas, modelagem estatística e machine learning.</p>
+                    <div class="hero-actions">
+                        <a href="contact.html?area=analytics" class="btn btn-primary">
+                            <i class="fas fa-rocket"></i> Solicitar Análise
+                        </a>
+                        <a href="#features" class="btn btn-outline">
+                            <i class="fas fa-play-circle"></i> Ver Demonstração
+                        </a>
+                    </div>
+                </div>
+                <div class="solution-hero-visual">
+                    <div class="analytics-demo">
+                        <div class="analytics-preview">
+                            <div class="correlation-plot">
+                                <div class="dot" style="left: 20%; top: 30%;"></div>
+                                <div class="dot" style="left: 35%; top: 45%;"></div>
+                                <div class="dot" style="left: 50%; top: 55%;"></div>
+                                <div class="dot" style="left: 65%; top: 60%;"></div>
+                                <div class="dot" style="left: 80%; top: 70%;"></div>
+                                <div class="trend-line"></div>
+                            </div>
+                            <div class="analytics-stats">
+                                <div class="stat">R²: 0.94</div>
+                                <div class="stat">p-value: &lt;0.001</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="features" class="features-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Capacidades de <span class="gradient-text">Análise de Dados</span></h2>
+                </div>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <i class="fas fa-chart-scatter"></i>
+                        <h3>Análise Exploratória</h3>
+                        <p>Identificação de padrões, outliers e correlações nos seus dados.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-brain"></i>
+                        <h3>Machine Learning</h3>
+                        <p>Modelos preditivos para classificação, regressão e clusterização.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-chart-line"></i>
+                        <h3>Séries Temporais</h3>
+                        <p>Previsão de demanda, sazonalidade e análise de tendências.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-users"></i>
+                        <h3>Segmentação</h3>
+                        <p>Clusterização de clientes e análise de comportamento.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="tech-details">
+            <div class="container">
+                <div class="tech-content">
+                    <h2>Metodologias e Ferramentas</h2>
+                    <div class="tech-stack-detail">
+                        <div class="tech-item">
+                            <span class="tech-name">Python (Pandas, NumPy, Scikit-learn)</span>
+                            <div class="tech-bar"><div class="tech-progress" style="width: 95%"></div></div>
+                        </div>
+                        <div class="tech-item">
+                            <span class="tech-name">R (Tidyverse, ggplot2)</span>
+                            <div class="tech-bar"><div class="tech-progress" style="width: 88%"></div></div>
+                        </div>
+                        <div class="tech-item">
+                            <span class="tech-name">SQL para Consultas Complexas</span>
+                            <div class="tech-bar"><div class="tech-progress" style="width: 92%"></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="use-cases">
+            <div class="container">
+                <h2>Aplicações Práticas</h2>
+                <div class="cases-grid">
+                    <div class="case-card">
+                        <i class="fas fa-chart-line"></i>
+                        <h3>Previsão de Vendas</h3>
+                        <p>Modelos preditivos para antecipar demanda e otimizar estoque.</p>
+                    </div>
+                    <div class="case-card">
+                        <i class="fas fa-user-group"></i>
+                        <h3>Análise de Churn</h3>
+                        <p>Identificação de clientes com risco de cancelamento.</p>
+                    </div>
+                    <div class="case-card">
+                        <i class="fas fa-chart-simple"></i>
+                        <h3>Otimização de Preços</h3>
+                        <p>Estratégias de precificação baseadas em elasticidade.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <div class="footer-logo">ZOLA<span>.ia</span></div>
+                    <p>Consultoria especializada em Business Intelligence, Data Analytics e Vigilância com Inteligência Artificial em Angola.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Soluções</h4>
+                    <ul>
+                        <li><a href="bi_consulting.html">Business Intelligence</a></li>
+                        <li><a href="data_analytics.html">Data Analytics</a></li>
+                        <li><a href="security.html">Vigilância com IA</a></li>
+                        <li><a href="strategic_consulting.html">Consultoria Estratégica</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Empresa</h4>
+                    <ul>
+                        <li><a href="about.html">Sobre Nós</a></li>
+                       
+                        <li><a href="contact.html">Contactos</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-contact">
+                    <h4>Contactos</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> Luanda, Angola</p>
+                    <p><i class="fas fa-phone"></i> +244 935 159 176</p>
+                    <p><i class="fas fa-envelope"></i> zola.ia.help@gmail.com</p>
+                    <p><i class="fas fa-clock"></i> Seg - Sex: 9h - 18h</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 ZOLA.ia - Consultoria em Business Intelligence & IA. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

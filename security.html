@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vigilância com Visão Computacional - ZOLA.ia</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .security-hero {
+            padding: 150px 0 80px;
+            background: linear-gradient(135deg, var(--primary-dark), #0a1628);
+        }
+        
+        .security-hero .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        
+        .solution-badge {
+            display: inline-block;
+            background: rgba(255, 107, 107, 0.1);
+            padding: 5px 15px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255, 107, 107, 0.3);
+        }
+        
+        .security-demo {
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            border-radius: 20px;
+            padding: 20px;
+            border: 1px solid rgba(255, 107, 107, 0.3);
+        }
+        
+        .camera-feed {
+            background: #0a0a1a;
+            border-radius: 10px;
+            height: 350px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .camera-feed i {
+            font-size: 4rem;
+            color: rgba(255, 255, 255, 0.1);
+        }
+        
+        .feed-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+        }
+        
+        .detection-box {
+            position: absolute;
+            border: 2px solid #ff6b6b;
+            background: rgba(255, 107, 107, 0.1);
+            padding: 5px 10px;
+            font-size: 0.7rem;
+            animation: blink 1s infinite;
+        }
+        
+        .detection-box:first-child {
+            top: 30%;
+            left: 40%;
+            width: 80px;
+            height: 120px;
+            border-color: var(--electric-blue);
+        }
+        
+        .detection-box.face {
+            top: 20%;
+            left: 55%;
+            width: 60px;
+            height: 80px;
+            border-color: var(--neon-green);
+        }
+        
+        .detection-box.anomaly {
+            top: 60%;
+            left: 30%;
+            width: 100px;
+            height: 60px;
+            border-color: #ff6b6b;
+        }
+        
+        .scan-line {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #ff6b6b, transparent);
+            animation: scan 2s linear infinite;
+        }
+        
+        @keyframes scan {
+            0% { top: 0; }
+            100% { top: 100%; }
+        }
+        
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        
+        .features-section { padding: 80px 0; }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .feature-card {
+            text-align: center;
+            padding: 30px;
+            background: var(--primary-blue);
+            border-radius: 15px;
+            transition: transform 0.3s ease;
+        }
+        
+        .feature-card:hover { transform: translateY(-5px); }
+        .feature-card i { font-size: 2.5rem; color: #ff6b6b; margin-bottom: 15px; }
+        
+        .tech-details { padding: 80px 0; background: var(--primary-blue); }
+        .tech-stack-detail { max-width: 600px; margin: 0 auto; }
+        .tech-item { margin-bottom: 25px; }
+        .tech-name { display: block; margin-bottom: 8px; font-weight: 500; }
+        .tech-bar { background: rgba(255,255,255,0.1); height: 8px; border-radius: 4px; overflow: hidden; }
+        .tech-progress { background: linear-gradient(90deg, #ff6b6b, #ee5a24); height: 100%; border-radius: 4px; }
+        
+        .use-cases { padding: 80px 0; }
+        .cases-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin-top: 50px;
+        }
+        .case-card {
+            text-align: center;
+            padding: 30px;
+            background: var(--primary-blue);
+            border-radius: 15px;
+        }
+        .case-card i { font-size: 2.5rem; color: #ff6b6b; margin-bottom: 15px; }
+        
+        .benefits { padding: 80px 0; background: var(--primary-blue); }
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 50px;
+        }
+        .benefit-card {
+            text-align: center;
+            padding: 30px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 15px;
+        }
+        .benefit-card i { font-size: 2rem; color: #ff6b6b; margin-bottom: 15px; }
+        
+        @media (max-width: 992px) {
+            .security-hero .container { grid-template-columns: 1fr; text-align: center; }
+            .features-grid { grid-template-columns: repeat(2, 1fr); }
+            .cases-grid { grid-template-columns: repeat(2, 1fr); }
+            .benefits-grid { grid-template-columns: 1fr; }
+        }
+        
+        @media (max-width: 576px) {
+            .features-grid { grid-template-columns: 1fr; }
+            .cases-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                ZOLA<span>.ia</span>
+            </a>
+            
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="about.html">Sobre</a></li>
+                    <li class="dropdown">
+                        <a href="#">Soluções <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="bi_consulting.html"><i class="fas fa-chart-line"></i> Business Intelligence</a></li>
+                            <li><a href="data_analytics.html"><i class="fas fa-chart-pie"></i> Data Analytics</a></li>
+                            <li><a href="security.html"><i class="fas fa-shield-alt"></i> Vigilância com IA</a></li>
+                            <li><a href="strategic_consulting.html"><i class="fas fa-users"></i> Consultoria Estratégica</a></li>
+                        </ul>
+                    </li>
+            
+                    <li><a href="contact.html" class="btn btn-secondary">Contactos</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="security-hero">
+            <div class="container">
+                <div class="solution-hero-content">
+                    <div class="solution-badge">Vigilância com IA</div>
+                    <h1>Vigilância com <span class="gradient-text">Visão Computacional</span></h1>
+                    <p>Sistema de monitoramento inteligente que utiliza deep learning para detectar ameaças em tempo real, reconhecer comportamentos suspeitos e prevenir incidentes antes que aconteçam.</p>
+                    <div class="hero-actions">
+                        <a href="contact.html?area=security" class="btn btn-primary">
+                            <i class="fas fa-rocket"></i> Solicitar Demo
+                        </a>
+                        <a href="#features" class="btn btn-outline">
+                            <i class="fas fa-play-circle"></i> Ver Demonstração
+                        </a>
+                    </div>
+                </div>
+                <div class="solution-hero-visual">
+                    <div class="security-demo">
+                        <div class="camera-feed">
+                            <div class="feed-overlay">
+                                <div class="detection-box">
+                                    <span>Pessoa: 94%</span>
+                                </div>
+                                <div class="detection-box face">
+                                    <span>Face Reconhecida</span>
+                                </div>
+                                <div class="detection-box anomaly">
+                                    <span>Comportamento Suspeito: 87%</span>
+                                </div>
+                                <div class="scan-line"></div>
+                            </div>
+                            <i class="fas fa-video"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="features" class="features-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Recursos Avançados de <span class="gradient-text">Vigilância IA</span></h2>
+                </div>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <i class="fas fa-face-recognition"></i>
+                        <h3>Reconhecimento Facial</h3>
+                        <p>Identificação precisa de pessoas em tempo real com banco de dados de faces autorizadas e não autorizadas.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-person-walking-arrow-right"></i>
+                        <h3>Análise Comportamental</h3>
+                        <p>Detecção de comportamentos suspeitos como movimentos erráticos, aglomerações e abandono de objetos.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-bell"></i>
+                        <h3>Alertas Inteligentes</h3>
+                        <p>Notificações em tempo real com priorização baseada em nível de risco e contexto da situação.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-chart-predictive"></i>
+                        <h3>Análise Preditiva</h3>
+                        <p>Previsão de incidentes baseada em padrões históricos e análise de tendências.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="tech-details">
+            <div class="container">
+                <div class="tech-content">
+                    <h2>Tecnologia por Trás da Solução</h2>
+                    <div class="tech-stack-detail">
+                        <div class="tech-item">
+                            <span class="tech-name">Redes Neurais Convolucionais (CNN)</span>
+                            <div class="tech-bar"><div class="tech-progress" style="width: 95%"></div></div>
+                        </div>
+                        <div class="tech-item">
+                            <span class="tech-name">YOLOv8 para Detecção</span>
+                            <div class="tech-bar"><div class="tech-progress" style="width: 92%"></div></div>
+                        </div>
+                        <div class="tech-item">
+                            <span class="tech-name">FaceNet para Reconhecimento</span>
+                            <div class="tech-bar"><div class="tech-progress" style="width: 96%"></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="use-cases">
+            <div class="container">
+                <h2>Aplicações Práticas</h2>
+                <div class="cases-grid">
+                    <div class="case-card">
+                        <i class="fas fa-building"></i>
+                        <h3>Empresas e Escritórios</h3>
+                        <p>Controle de acesso, monitoramento de áreas restritas e detecção de intrusos.</p>
+                    </div>
+                    <div class="case-card">
+                        <i class="fas fa-store"></i>
+                        <h3>Varejo</h3>
+                        <p>Prevenção de furtos, análise de fluxo de clientes e segurança de estoque.</p>
+                    </div>
+                    <div class="case-card">
+                        <i class="fas fa-city"></i>
+                        <h3>Cidades Inteligentes</h3>
+                        <p>Monitoramento de espaços públicos, gestão de tráfego e segurança urbana.</p>
+                    </div>
+                    <div class="case-card">
+                        <i class="fas fa-industry"></i>
+                        <h3>Indústrias</h3>
+                        <p>Segurança operacional, monitoramento de equipamentos e controle de acesso em zonas de risco.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="benefits">
+            <div class="container">
+                <h2>Benefícios da Vigilância com IA</h2>
+                <div class="benefits-grid">
+                    <div class="benefit-card">
+                        <i class="fas fa-chart-line"></i>
+                        <h3>87% Redução de Incidentes</h3>
+                        <p>Detecção proativa de ameaças.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <i class="fas fa-clock"></i>
+                        <h3>Resposta 95% Mais Rápida</h3>
+                        <p>Alertas em tempo real.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <i class="fas fa-chart-simple"></i>
+                        <h3>Até 60% de Economia</h3>
+                        <p>Otimização de recursos de segurança.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <div class="footer-logo">ZOLA<span>.ia</span></div>
+                    <p>Consultoria especializada em Business Intelligence, Data Analytics e Vigilância com Inteligência Artificial em Angola.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Soluções</h4>
+                    <ul>
+                        <li><a href="bi_consulting.html">Business Intelligence</a></li>
+                        <li><a href="data_analytics.html">Data Analytics</a></li>
+                        <li><a href="security.html">Vigilância com IA</a></li>
+                        <li><a href="strategic_consulting.html">Consultoria Estratégica</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Empresa</h4>
+                    <ul>
+                        <li><a href="about.html">Sobre Nós</a></li>
+                        
+                        <li><a href="contact.html">Contactos</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-contact">
+                    <h4>Contactos</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> Luanda, Angola</p>
+                    <p><i class="fas fa-phone"></i> +244 935 159 176</p>
+                    <p><i class="fas fa-envelope"></i> zola.ia.help@gmail.com</p>
+                    <p><i class="fas fa-clock"></i> Seg - Sex: 9h - 18h</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 ZOLA.ia - Consultoria em Business Intelligence & IA. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

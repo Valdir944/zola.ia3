@@ -1,0 +1,139 @@
+<!-- technology.html -->
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tecnologia - ZOLA.ia</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .tech-section {
+            padding: 150px 0 80px;
+        }
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        .tech-card {
+            background: var(--primary-blue);
+            padding: 30px;
+            text-align: center;
+            border-radius: 15px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 180, 216, 0.1);
+        }
+        .tech-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--electric-blue);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                ZOLA<span>.ia</span>
+            </a>
+            
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="about.html">Sobre</a></li>
+                    <li class="dropdown">
+                        <a href="#">Soluções <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="bi_consulting.html"><i class="fas fa-chart-line"></i> Business Intelligence</a></li>
+                            <li><a href="data_analytics.html"><i class="fas fa-chart-pie"></i> Data Analytics</a></li>
+                            <li><a href="security.html"><i class="fas fa-shield-alt"></i> Vigilância com IA</a></li>
+                            <li><a href="strategic_consulting.html"><i class="fas fa-users"></i> Consultoria Estratégica</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="technology.html">Tecnologia</a></li>
+                    <li><a href="contact.html" class="btn btn-secondary">Contactos</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="tech-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Nosso <span class="gradient-text">Stack Tecnológico</span></h2>
+                    <p>Tecnologias e ferramentas que usamos para entregar soluções.</p>
+                </div>
+
+                <div class="tech-grid">
+                    <div class="tech-card">Python</div>
+                    <div class="tech-card">OpenCV</div>
+                    <div class="tech-card">YOLO</div>
+                    <div class="tech-card">Power BI</div>
+                    <div class="tech-card">Tableau</div>
+                    <div class="tech-card">SQL</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <div class="footer-logo">ZOLA<span>.ia</span></div>
+                    <p>Consultoria especializada em Business Intelligence, Data Analytics e Vigilância com Inteligência Artificial em Angola.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Soluções</h4>
+                    <ul>
+                        <li><a href="bi_consulting.html">Business Intelligence</a></li>
+                        <li><a href="data_analytics.html">Data Analytics</a></li>
+                        <li><a href="security.html">Vigilância com IA</a></li>
+                        <li><a href="strategic_consulting.html">Consultoria Estratégica</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Empresa</h4>
+                    <ul>
+                        <li><a href="about.html">Sobre Nós</a></li>
+                        <li><a href="technology.html">Tecnologia</a></li>
+                        <li><a href="contact.html">Contactos</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-contact">
+                    <h4>Contactos</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> Luanda, Angola</p>
+                    <p><i class="fas fa-phone"></i> +244 935 159 176</p>
+                    <p><i class="fas fa-envelope"></i> zola.ia.help@gmail.com</p>
+                    <p><i class="fas fa-clock"></i> Seg - Sex: 9h - 18h</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 ZOLA.ia - Consultoria em Business Intelligence & IA. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

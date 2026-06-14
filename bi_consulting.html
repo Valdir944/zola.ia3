@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consultoria em Business Intelligence - ZOLA.ia</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .bi-hero {
+            padding: 150px 0 80px;
+            background: linear-gradient(135deg, var(--primary-dark), #0a1628);
+        }
+        
+        .bi-hero .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        
+        .solution-badge {
+            display: inline-block;
+            background: rgba(0, 180, 216, 0.1);
+            padding: 5px 15px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            margin-bottom: 20px;
+            border: 1px solid rgba(0, 180, 216, 0.3);
+        }
+        
+        .bi-demo {
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            border-radius: 20px;
+            padding: 20px;
+            border: 1px solid rgba(0, 180, 216, 0.3);
+        }
+        
+        .dashboard-preview {
+            background: #0a0a1a;
+            border-radius: 10px;
+            padding: 20px;
+        }
+        
+        .dashboard-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(0, 180, 216, 0.2);
+        }
+        
+        .dashboard-header i {
+            font-size: 1.2rem;
+            color: var(--electric-blue);
+        }
+        
+        .dashboard-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 10px;
+            background: rgba(0, 180, 216, 0.1);
+            border-radius: 8px;
+        }
+        
+        .stat-value {
+            display: block;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--electric-blue);
+        }
+        
+        .stat-label {
+            font-size: 0.7rem;
+            color: var(--gray-medium);
+        }
+        
+        .dashboard-chart {
+            display: flex;
+            align-items: flex-end;
+            gap: 10px;
+            height: 100px;
+        }
+        
+        .chart-bar {
+            flex: 1;
+            background: linear-gradient(180deg, var(--electric-blue), var(--neon-green));
+            border-radius: 4px 4px 0 0;
+        }
+        
+        .features-section { padding: 80px 0; }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .feature-card {
+            text-align: center;
+            padding: 30px;
+            background: var(--primary-blue);
+            border-radius: 15px;
+            transition: transform 0.3s ease;
+        }
+        
+        .feature-card:hover { transform: translateY(-5px); }
+        .feature-card i { font-size: 2.5rem; color: var(--electric-blue); margin-bottom: 15px; }
+        
+        .tech-details { padding: 80px 0; background: var(--primary-blue); }
+        .tech-stack-detail { max-width: 600px; margin: 0 auto; }
+        .tech-item { margin-bottom: 25px; }
+        .tech-name { display: block; margin-bottom: 8px; font-weight: 500; }
+        .tech-bar { background: rgba(255,255,255,0.1); height: 8px; border-radius: 4px; overflow: hidden; }
+        .tech-progress { background: linear-gradient(90deg, var(--electric-blue), var(--neon-green)); height: 100%; border-radius: 4px; }
+        
+        .benefits { padding: 80px 0; }
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 50px;
+        }
+        .benefit-card {
+            text-align: center;
+            padding: 30px;
+            background: var(--primary-blue);
+            border-radius: 15px;
+        }
+        .benefit-card i { font-size: 2rem; color: var(--electric-blue); margin-bottom: 15px; }
+        
+        @media (max-width: 992px) {
+            .bi-hero .container { grid-template-columns: 1fr; text-align: center; }
+            .features-grid { grid-template-columns: repeat(2, 1fr); }
+            .benefits-grid { grid-template-columns: 1fr; }
+        }
+        
+        @media (max-width: 576px) {
+            .features-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                ZOLA<span>.ia</span>
+            </a>
+            
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="about.html">Sobre</a></li>
+                    <li class="dropdown">
+                        <a href="#">Soluções <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="bi_consulting.html"><i class="fas fa-chart-line"></i> Business Intelligence</a></li>
+                            <li><a href="data_analytics.html"><i class="fas fa-chart-pie"></i> Data Analytics</a></li>
+                            <li><a href="security.html"><i class="fas fa-shield-alt"></i> Vigilância com IA</a></li>
+                            <li><a href="strategic_consulting.html"><i class="fas fa-users"></i> Consultoria Estratégica</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="contact.html" class="btn btn-secondary">Contactos</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="bi-hero">
+            <div class="container">
+                <div class="solution-hero-content">
+                    <div class="solution-badge">Business Intelligence</div>
+                    <h1>Consultoria em <span class="gradient-text">Business Intelligence</span></h1>
+                    <p>Transformamos dados em decisões estratégicas. Implementamos dashboards interativos, data warehouses e soluções completas de BI para sua empresa.</p>
+                    <div class="hero-actions">
+                        <a href="contact.html?area=bi" class="btn btn-primary">
+                            <i class="fas fa-rocket"></i> Solicitar Consultoria
+                        </a>
+                        <a href="#features" class="btn btn-outline">
+                            <i class="fas fa-play-circle"></i> Ver Demonstração
+                        </a>
+                    </div>
+                </div>
+                <div class="solution-hero-visual">
+                    <div class="bi-demo">
+                        <div class="dashboard-preview">
+                            <div class="dashboard-header">
+                                <i class="fas fa-chart-line"></i>
+                                <span>Executive Dashboard</span>
+                            </div>
+                            <div class="dashboard-stats">
+                                <div class="stat-item">
+                                    <span class="stat-value">₿ 2.5M</span>
+                                    <span class="stat-label">Receita YTD</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-value">+28%</span>
+                                    <span class="stat-label">Crescimento</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-value">95%</span>
+                                    <span class="stat-label">Satisfação</span>
+                                </div>
+                            </div>
+                            <div class="dashboard-chart">
+                                <div class="chart-bar" style="height: 40px;"></div>
+                                <div class="chart-bar" style="height: 65px;"></div>
+                                <div class="chart-bar" style="height: 50px;"></div>
+                                <div class="chart-bar" style="height: 80px;"></div>
+                                <div class="chart-bar" style="height: 70px;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="features" class="features-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Serviços de <span class="gradient-text">Business Intelligence</span></h2>
+                </div>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <i class="fas fa-chart-simple"></i>
+                        <h3>Dashboards Interativos</h3>
+                        <p>Criação de dashboards personalizados com KPIs relevantes para seu negócio, com atualização em tempo real.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-database"></i>
+                        <h3>Data Warehousing</h3>
+                        <p>Implementação de data warehouses otimizados para consolidar dados de múltiplas fontes.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-chart-line"></i>
+                        <h3>Análise Preditiva</h3>
+                        <p>Modelos preditivos para antecipar tendências, prever demanda e identificar oportunidades.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-chart-pie"></i>
+                        <h3>ETL & Integração</h3>
+                        <p>Processos automatizados de extração, transformação e carga de dados.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="tech-details">
+            <div class="container">
+                <div class="tech-content">
+                    <h2>Ferramentas e Tecnologias</h2>
+                    <div class="tech-stack-detail">
+                        <div class="tech-item">
+                            <span class="tech-name">Power BI / Tableau</span>
+                            <div class="tech-bar"><div class="tech-progress" style="width: 95%"></div></div>
+                        </div>
+                        <div class="tech-item">
+                            <span class="tech-name">SQL / Data Warehousing</span>
+                            <div class="tech-bar"><div class="tech-progress" style="width: 92%"></div></div>
+                        </div>
+                        <div class="tech-item">
+                            <span class="tech-name">Python / R para Analytics</span>
+                            <div class="tech-bar"><div class="tech-progress" style="width: 90%"></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="benefits">
+            <div class="container">
+                <h2>Benefícios para sua Empresa</h2>
+                <div class="benefits-grid">
+                    <div class="benefit-card">
+                        <i class="fas fa-chart-line"></i>
+                        <h3>+35% Eficiência</h3>
+                        <p>Tomada de decisão mais rápida e baseada em dados.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <i class="fas fa-clock"></i>
+                        <h3>Redução de 70% em Relatórios Manuais</h3>
+                        <p>Automatização de relatórios e dashboards.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <i class="fas fa-chart-simple"></i>
+                        <h3>ROI de 300% em Projetos BI</h3>
+                        <p>Retorno sobre investimento comprovado.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <div class="footer-logo">ZOLA<span>.ia</span></div>
+                    <p>Consultoria especializada em Business Intelligence, Data Analytics e Vigilância com Inteligência Artificial em Angola.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Soluções</h4>
+                    <ul>
+                        <li><a href="bi_consulting.html">Business Intelligence</a></li>
+                        <li><a href="data_analytics.html">Data Analytics</a></li>
+                        <li><a href="security.html">Vigilância com IA</a></li>
+                        <li><a href="strategic_consulting.html">Consultoria Estratégica</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Empresa</h4>
+                    <ul>
+                        <li><a href="about.html">Sobre Nós</a></li>
+                        
+                        <li><a href="contact.html">Contactos</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-contact">
+                    <h4>Contactos</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> Luanda, Angola</p>
+                    <p><i class="fas fa-phone"></i> +244 935 159 176</p>
+                    <p><i class="fas fa-envelope"></i> zola.ia.help@gmail.com</p>
+                    <p><i class="fas fa-clock"></i> Seg - Sex: 9h - 18h</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 ZOLA.ia - Consultoria em Business Intelligence & IA. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

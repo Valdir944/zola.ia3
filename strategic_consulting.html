@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consultoria Estratégica em Dados - ZOLA.ia</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .consulting-hero {
+            padding: 150px 0 80px;
+            background: linear-gradient(135deg, var(--primary-dark), #0a1628);
+        }
+        
+        .consulting-hero .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        
+        .solution-badge {
+            display: inline-block;
+            background: rgba(243, 156, 18, 0.1);
+            padding: 5px 15px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            margin-bottom: 20px;
+            border: 1px solid rgba(243, 156, 18, 0.3);
+        }
+        
+        .consulting-demo {
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            border-radius: 20px;
+            padding: 20px;
+            border: 1px solid rgba(243, 156, 18, 0.3);
+        }
+        
+        .strategy-preview {
+            background: #0a0a1a;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .strategy-cycle {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+        }
+        
+        .cycle-node {
+            background: rgba(243, 156, 18, 0.2);
+            padding: 12px 20px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            color: #f39c12;
+            border: 1px solid rgba(243, 156, 18, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .cycle-node:hover {
+            transform: scale(1.05);
+            background: rgba(243, 156, 18, 0.3);
+        }
+        
+        .features-section { padding: 80px 0; }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .feature-card {
+            text-align: center;
+            padding: 30px;
+            background: var(--primary-blue);
+            border-radius: 15px;
+            transition: transform 0.3s ease;
+        }
+        
+        .feature-card:hover { transform: translateY(-5px); }
+        .feature-card i { font-size: 2.5rem; color: #f39c12; margin-bottom: 15px; }
+        
+        .methodology { padding: 80px 0; background: var(--primary-blue); }
+        .methodology-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin-top: 50px;
+        }
+        .method-step {
+            text-align: center;
+            padding: 30px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 15px;
+        }
+        .step-num {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #f39c12;
+            margin-bottom: 15px;
+        }
+        
+        .benefits { padding: 80px 0; }
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 50px;
+        }
+        .benefit-card {
+            text-align: center;
+            padding: 30px;
+            background: var(--primary-blue);
+            border-radius: 15px;
+        }
+        .benefit-card i { font-size: 2rem; color: #f39c12; margin-bottom: 15px; }
+        
+        @media (max-width: 992px) {
+            .consulting-hero .container { grid-template-columns: 1fr; text-align: center; }
+            .features-grid { grid-template-columns: repeat(2, 1fr); }
+            .methodology-grid { grid-template-columns: repeat(2, 1fr); }
+            .benefits-grid { grid-template-columns: 1fr; }
+        }
+        
+        @media (max-width: 576px) {
+            .features-grid { grid-template-columns: 1fr; }
+            .methodology-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                ZOLA<span>.ia</span>
+            </a>
+            
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="about.html">Sobre</a></li>
+                    <li class="dropdown">
+                        <a href="#">Soluções <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="bi_consulting.html"><i class="fas fa-chart-line"></i> Business Intelligence</a></li>
+                            <li><a href="data_analytics.html"><i class="fas fa-chart-pie"></i> Data Analytics</a></li>
+                            <li><a href="security.html"><i class="fas fa-shield-alt"></i> Vigilância com IA</a></li>
+                            <li><a href="strategic_consulting.html"><i class="fas fa-users"></i> Consultoria Estratégica</a></li>
+                        </ul>
+                    </li>
+                    
+                    <li><a href="contact.html" class="btn btn-secondary">Contactos</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="consulting-hero">
+            <div class="container">
+                <div class="solution-hero-content">
+                    <div class="solution-badge">Consultoria Estratégica</div>
+                    <h1>Transformação Digital <span class="gradient-text">Data-Driven</span></h1>
+                    <p>Ajudamos sua empresa a se tornar orientada por dados com estratégias personalizadas, governança e cultura analítica.</p>
+                    <div class="hero-actions">
+                        <a href="contact.html?area=consulting" class="btn btn-primary">
+                            <i class="fas fa-rocket"></i> Agendar Diagnóstico
+                        </a>
+                        <a href="#features" class="btn btn-outline">
+                            <i class="fas fa-play-circle"></i> Ver Metodologia
+                        </a>
+                    </div>
+                </div>
+                <div class="solution-hero-visual">
+                    <div class="consulting-demo">
+                        <div class="strategy-preview">
+                            <div class="strategy-cycle">
+                                <div class="cycle-node">Diagnóstico</div>
+                                <div class="cycle-node">Estratégia</div>
+                                <div class="cycle-node">Implementação</div>
+                                <div class="cycle-node">Evolução</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="features" class="features-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Nossos Serviços de <span class="gradient-text">Consultoria</span></h2>
+                </div>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <i class="fas fa-clipboard-list"></i>
+                        <h3>Diagnóstico de Maturidade</h3>
+                        <p>Avaliação completa da capacidade analítica da sua empresa.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-road"></i>
+                        <h3>Roadmap de Dados</h3>
+                        <p>Plano estratégico de curto, médio e longo prazo.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-shield-alt"></i>
+                        <h3>Governança de Dados</h3>
+                        <p>Políticas e processos para qualidade e segurança.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-chalkboard-user"></i>
+                        <h3>Capacitação</h3>
+                        <p>Treinamentos e workshops para sua equipe.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="methodology">
+            <div class="container">
+                <h2>Metodologia Comprovada</h2>
+                <div class="methodology-grid">
+                    <div class="method-step">
+                        <div class="step-num">1</div>
+                        <h3>Descoberta</h3>
+                        <p>Entendemos seus objetivos, desafios e maturidade analítica atual.</p>
+                    </div>
+                    <div class="method-step">
+                        <div class="step-num">2</div>
+                        <h3>Estratégia</h3>
+                        <p>Desenvolvemos um roadmap personalizado com prioridades e KPIs.</p>
+                    </div>
+                    <div class="method-step">
+                        <div class="step-num">3</div>
+                        <h3>Implementação</h3>
+                        <p>Executamos as soluções com metodologias ágeis.</p>
+                    </div>
+                    <div class="method-step">
+                        <div class="step-num">4</div>
+                        <h3>Otimização</h3>
+                        <p>Acompanhamos resultados e evoluímos continuamente.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="benefits">
+            <div class="container">
+                <h2>Resultados para sua Empresa</h2>
+                <div class="benefits-grid">
+                    <div class="benefit-card">
+                        <i class="fas fa-chart-line"></i>
+                        <h3>+40% Eficiência em Decisões</h3>
+                        <p>Tomada de decisão mais rápida e assertiva.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <i class="fas fa-chart-simple"></i>
+                        <h3>ROI de 250% em Projetos</h3>
+                        <p>Retorno sobre investimento em projetos de dados.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <i class="fas fa-flag-checkered"></i>
+                        <h3>Empresa Data-Driven</h3>
+                        <p>Cultura analítica consolidada em toda organização.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <div class="footer-logo">ZOLA<span>.ia</span></div>
+                    <p>Consultoria especializada em Business Intelligence, Data Analytics e Vigilância com Inteligência Artificial em Angola.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Soluções</h4>
+                    <ul>
+                        <li><a href="bi_consulting.html">Business Intelligence</a></li>
+                        <li><a href="data_analytics.html">Data Analytics</a></li>
+                        <li><a href="security.html">Vigilância com IA</a></li>
+                        <li><a href="strategic_consulting.html">Consultoria Estratégica</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Empresa</h4>
+                    <ul>
+                        <li><a href="about.html">Sobre Nós</a></li>
+                       
+                        <li><a href="contact.html">Contactos</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-contact">
+                    <h4>Contactos</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> Luanda, Angola</p>
+                    <p><i class="fas fa-phone"></i> +244 935 159 176</p>
+                    <p><i class="fas fa-envelope"></i> zola.ia.help@gmail.com</p>
+                    <p><i class="fas fa-clock"></i> Seg - Sex: 9h - 18h</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 ZOLA.ia - Consultoria em Business Intelligence & IA. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
